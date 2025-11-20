@@ -61,6 +61,7 @@
               "properties": {
                 'name': "my first popup",
                 'description': "i was born here ",
+                'image': "img/1.PNG",
               }
             },
             {
@@ -72,6 +73,7 @@
               "properties": {
                 'name': "i lived here",
                 'description': "I went skiing here",
+                'image': "img/2.JPEG",
               }
             },
             {
@@ -83,6 +85,7 @@
               "properties": {
                 'name': "i have fun here",
                 'description': "I went hiking here",
+                'image': "img/3.JPG",
               }
             }
           ]
@@ -107,12 +110,12 @@
           const coordinates = e.feature.geometry.coordinates.slice();
           const name = e.feature.properties.name;
           const description = e.feature.properties.description;
-          // const image = e.feature.properties.image;
+          const image = e.feature.properties.image;
 
           new mapboxgl.Popup()
             .setLngLat(coordinates)
             .setHTML("<strong>" + name + "</strong><br/>" + description)
-            // .setHTML("<img src='" + image + "'><br><strong>" + name + "</strong><br/>" + description)
+            .setHTML("<img src='" + image + "'><br><strong>" + name + "</strong><br/>" + description)
             .addTo(map);
         }
       });
